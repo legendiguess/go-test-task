@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "userserver/";
+
+package userserver;
+
+service UserServer {
+  // Add new user
+  rpc AddUser (User) returns (Response) {}
+  // Delete user
+  rpc DeleteUser (User) returns (Response) {}
+  // Get list of all users
+  rpc GetUsers (GetUsersParams) returns (Users) {}
+}
+
+message User {
+  string name = 1;
+}
+
+message Users {
+  repeated string names = 1;
+}
+
+message Response {
+  bool result = 1;
+}
+
+message GetUsersParams {
+  
+}
